@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.seventhmoon.tenniswearboard"
+        //if want to release wear 2.0 for wear only, minSdkVersion and targetSdkVersion must be 25
+        minSdkVersion 23
+        targetSdkVersion 26
+        versionCode 19
+        versionName "1.18"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.android.support:wearable:2.0.4'
+    provided 'com.google.android.wearable:wearable:2.0.4'
+    compile 'com.google.android.gms:play-services-wearable:11.0.4'
+    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    compile project(':WheelPicker-1.1.2')
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+}
