@@ -2853,11 +2853,14 @@ public class PointActivity extends WearableActivity {
                                             voiceList.add(call2);
                                         }
 
-                                        call3 = getPointByNumStart((byte)(up_point/10*10));
-                                        voiceList.add(call3);
                                         if (up_point%10 > 0) {
+                                            call3 = getPointByNumStart((byte)(up_point/10*10));
+                                            voiceList.add(call3);
                                             call4 = getPointByNumEnd((byte) (up_point % 10));
                                             voiceList.add(call4);
+                                        } else {
+                                            call3 = getPointByNumEnd((byte)(up_point/10*10));
+                                            voiceList.add(call3);
                                         }
                                         break;
                                     case USER_RECORD:
@@ -2890,11 +2893,14 @@ public class PointActivity extends WearableActivity {
                                             voiceList.add(call2);
                                         }
 
-                                        call3 = getPointByNumStart((byte)(down_point/10*10));
-                                        voiceList.add(call3);
                                         if (down_point%10 > 0) {
+                                            call3 = getPointByNumStart((byte)(down_point/10*10));
+                                            voiceList.add(call3);
                                             call4 = getPointByNumEnd((byte) (down_point % 10));
                                             voiceList.add(call4);
+                                        } else {
+                                            call3 = getPointByNumEnd((byte)(down_point/10*10));
+                                            voiceList.add(call3);
                                         }
                                         break;
                                     case USER_RECORD:
