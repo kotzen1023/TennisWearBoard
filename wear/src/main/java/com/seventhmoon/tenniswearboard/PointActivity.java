@@ -264,7 +264,7 @@ public class PointActivity extends WearableActivity {
         layoutBtnVoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*if (voiceOn) {
+                if (voiceOn) {
                     voiceOn = false;
                     imageViewPointVoice.setImageResource(R.drawable.ic_keyboard_voice_black_off_48dp);
                     toast(context.getResources().getString(R.string.voice_off));
@@ -276,7 +276,7 @@ public class PointActivity extends WearableActivity {
 
                 editor = pref.edit();
                 editor.putBoolean("VOICE_ON", voiceOn);
-                editor.apply();*/
+                editor.apply();
             }
         });
 
