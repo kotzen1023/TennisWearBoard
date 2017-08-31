@@ -3,6 +3,7 @@ package com.seventhmoon.tenniswearboard.Data;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 
 
 public class ListenChooseArrayAdapter extends ArrayAdapter<ListenChooseItem> {
-    private static final String TAG = ListenChooseArrayAdapter.class.getName();
+    //private static final String TAG = ListenChooseArrayAdapter.class.getName();
 
     private LayoutInflater inflater = null;
     //SparseBooleanArray mSparseBooleanArray;
@@ -47,7 +48,7 @@ public class ListenChooseArrayAdapter extends ArrayAdapter<ListenChooseItem> {
         return items.get(position);
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public @NonNull View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
         //Log.e(TAG, "getView = "+ position);
         View view;
@@ -119,11 +120,11 @@ public class ListenChooseArrayAdapter extends ArrayAdapter<ListenChooseItem> {
             switch (position) {
                 case 0: //uk man
                     bitmap = BitmapFactory.decodeResource(view.getResources(), R.drawable.uk_flag);
-                    holder.filename.setText("GBR Man");
+                    holder.filename.setText(context.getResources().getString(R.string.voice_support_gbr_man));
                     break;
                 case 1: //uk woman
                     bitmap = BitmapFactory.decodeResource(view.getResources(), R.drawable.uk_flag);
-                    holder.filename.setText("GBR Woman");
+                    holder.filename.setText(context.getResources().getString(R.string.voice_support_gbr_woman));
                     break;
                 //case 2: //user
                 //    bitmap = BitmapFactory.decodeResource(view.getResources(), R.drawable.ic_record_voice_over_white_48dp);
@@ -131,7 +132,7 @@ public class ListenChooseArrayAdapter extends ArrayAdapter<ListenChooseItem> {
                     //break;
                 default:
                     bitmap = BitmapFactory.decodeResource(view.getResources(), R.drawable.uk_flag);
-                    holder.filename.setText("GBR Man");
+                    holder.filename.setText(context.getResources().getString(R.string.voice_support_gbr_man));
                     break;
             }
             holder.fileicon.setImageBitmap(bitmap);
@@ -175,15 +176,15 @@ public class ListenChooseArrayAdapter extends ArrayAdapter<ListenChooseItem> {
         }
     };*/
 
-    class ViewHolder {
+    private class ViewHolder {
         ImageView fileicon;
         TextView filename;
         //CheckBox checkbox;
 
 
-        public ViewHolder(View view) {
-            this.fileicon = (ImageView) view.findViewById(R.id.listen_Icon1);
-            this.filename = (TextView) view.findViewById(R.id.ListenChooseName);
+        private ViewHolder(View view) {
+            this.fileicon = view.findViewById(R.id.listen_Icon1);
+            this.filename = view.findViewById(R.id.ListenChooseName);
             //this.checkbox = (CheckBox) view.findViewById(R.id.checkBoxInRow);
         }
     }

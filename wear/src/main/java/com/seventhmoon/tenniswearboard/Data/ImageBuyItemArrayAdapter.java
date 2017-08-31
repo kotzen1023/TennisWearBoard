@@ -2,6 +2,7 @@ package com.seventhmoon.tenniswearboard.Data;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 
 public class ImageBuyItemArrayAdapter extends ArrayAdapter<ImageBuyItem> {
-    private static final String TAG = ImageBuyItemArrayAdapter.class.getName();
+    //private static final String TAG = ImageBuyItemArrayAdapter.class.getName();
 
     private LayoutInflater inflater = null;
 
@@ -30,7 +31,6 @@ public class ImageBuyItemArrayAdapter extends ArrayAdapter<ImageBuyItem> {
         this.context = context;
         this.layoutResourceId = layoutResourceId;
         this.items = objects;
-        this.context = context;
 
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -54,7 +54,7 @@ public class ImageBuyItemArrayAdapter extends ArrayAdapter<ImageBuyItem> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public @NonNull View getView(int position, View convertView, @NonNull ViewGroup parent) {
         //View row = convertView;
         View view;
         ViewHolder holder;
@@ -139,9 +139,9 @@ public class ImageBuyItemArrayAdapter extends ArrayAdapter<ImageBuyItem> {
         //    return state;
         //}
         private ViewHolder(View view) {
-            this.image = (ImageView) view.findViewById(R.id.voiceImage);
+            this.image = view.findViewById(R.id.voiceImage);
             //this.videoView = (VideoView) view.findViewById(R.id.videoView);
-            this.imageTitle = (TextView) view.findViewById(R.id.voiceText);
+            this.imageTitle = view.findViewById(R.id.voiceText);
             //this.videotime = (TextView) view.findViewById(R.id.songTime);
         }
 

@@ -1,7 +1,10 @@
 package com.seventhmoon.tenniswearboard;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -14,10 +17,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
-import android.text.Layout;
+
+import android.support.wearable.view.CircledImageView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,7 +36,7 @@ import com.google.android.gms.wearable.PutDataMapRequest;
 import com.google.android.gms.wearable.Wearable;
 import com.seventhmoon.tenniswearboard.Audio.VoicePlay;
 import com.seventhmoon.tenniswearboard.Data.Constants;
-import com.seventhmoon.tenniswearboard.Data.InitData;
+
 import com.seventhmoon.tenniswearboard.Data.State;
 
 import java.text.SimpleDateFormat;
@@ -41,10 +47,7 @@ import java.util.Deque;
 import java.util.Locale;
 
 import static com.seventhmoon.tenniswearboard.Data.Constants.VOICE_TYPE.GBR_MAN;
-//import static com.seventhmoon.tenniswearboard.Data.InitData.is_debug;
-//import static com.seventhmoon.tenniswearboard.Data.InitData.mGoogleApiClient;
-//import static com.seventhmoon.tenniswearboard.Data.InitData.mSensorManager;
-//import static com.seventhmoon.tenniswearboard.Data.InitData.mStepCounter;
+
 import static com.seventhmoon.tenniswearboard.SetsActivity.myData;
 
 
@@ -65,12 +68,12 @@ public class PointActivity extends WearableActivity {
     private ImageView imgServeUp;
     private ImageView imgServeDown;
 
-    private TextView btnPoints;
-    private TextView btnGames;
+    //private TextView btnPoints;
+    //private TextView btnGames;
 
     private LinearLayout layoutFBack;
-    private LinearLayout layoutBtnBack;
-    private LinearLayout layoutBtnVoice;
+    //private LinearLayout layoutBtnBack;
+    //private LinearLayout layoutBtnVoice;
     private ImageView imageViewPointVoice;
     private LinearLayout layoutPointStepCount;
     private TextView stepCountPoint;
@@ -90,8 +93,8 @@ public class PointActivity extends WearableActivity {
 
     public static Deque<State> stack = new ArrayDeque<>();
 
-    private static long previous_time = 0;
-    private static long current_time = 0;
+    //private static long previous_time = 0;
+    //private static long current_time = 0;
 
 
     //step
@@ -125,6 +128,8 @@ public class PointActivity extends WearableActivity {
     static SharedPreferences.Editor editor;
     private static final String FILE_NAME = "Preference";
 
+    private Dialog dialog;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,29 +160,29 @@ public class PointActivity extends WearableActivity {
         Log.e(TAG, "DEUCE = "+deuce);
         Log.e(TAG, "SERVE = "+serve);
 
-        pointContainer = (BoxInsetLayout) findViewById(R.id.pointContainer);
+        pointContainer = findViewById(R.id.pointContainer);
 
-        layoutFBack = (LinearLayout) findViewById(R.id.layoutPointPFBack);
-        layoutBtnBack = findViewById(R.id.layoutBtnBack);
-        layoutBtnVoice = findViewById(R.id.layoutBtnVoice);
+        layoutFBack = findViewById(R.id.layoutPointPFBack);
+        FrameLayout layoutBtnBack = findViewById(R.id.layoutBtnBack);
+        FrameLayout layoutBtnVoice = findViewById(R.id.layoutBtnVoice);
         imageViewPointVoice = findViewById(R.id.imageViewPointVoice);
-        layoutPointStepCount = (LinearLayout) findViewById(R.id.layoutPointStepCount);
-        stepCountPoint = (TextView) findViewById(R.id.stepCountPoint);
+        layoutPointStepCount = findViewById(R.id.layoutPointStepCount);
+        stepCountPoint = findViewById(R.id.stepCountPoint);
 
-        headOppt = (TextView) findViewById(R.id.headOppt);
-        headYou = (TextView) findViewById(R.id.headYou);
+        headOppt = findViewById(R.id.headOppt);
+        headYou = findViewById(R.id.headYou);
 
-        pointUp = (TextView) findViewById(R.id.textViewPointPFPointUp);
-        pointDown = (TextView) findViewById(R.id.textViewPointPFPointdown);
+        pointUp = findViewById(R.id.textViewPointPFPointUp);
+        pointDown = findViewById(R.id.textViewPointPFPointdown);
 
-        imgServeUp = (ImageView) findViewById(R.id.imageViewPointPFServeUp);
-        imgServeDown = (ImageView) findViewById(R.id.imageViewPointPFServeDown);
+        imgServeUp = findViewById(R.id.imageViewPointPFServeUp);
+        imgServeDown = findViewById(R.id.imageViewPointPFServeDown);
 
-        btnPoints = (TextView) findViewById(R.id.textViewPointPoints);
-        btnGames = (TextView) findViewById(R.id.textViewPointGames);
+        //btnPoints = findViewById(R.id.textViewPointPoints);
+        //TextView btnGames = findViewById(R.id.textViewPointGames);
 
-        layoutBtn = (LinearLayout) findViewById(R.id.layoutBtn);
-        textViewTime = (TextView) findViewById(R.id.textViewpointTime);
+        layoutBtn = findViewById(R.id.layoutBtn);
+        textViewTime = findViewById(R.id.textViewpointTime);
 
         if (voiceOn) {
             imageViewPointVoice.setImageResource(R.drawable.ic_keyboard_voice_black_48dp);
@@ -253,13 +258,20 @@ public class PointActivity extends WearableActivity {
         String initCommand = "init;"+set+";"+games+";"+tiebreak+";"+deuce+";"+serve+";"+startTime;
         syncSendCommand(initCommand);
 
-        previous_time = 0;
-        current_time = 0;
+        //previous_time = 0;
+        //current_time = 0;
 
         //show tips
         toast(getResources().getString(R.string.game_show_tips));
 
         step_count_start = 0;
+
+        /*btnPoints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
 
         layoutBtnVoice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -464,7 +476,7 @@ public class PointActivity extends WearableActivity {
 
         myData.mSensorManager.registerListener(sensorEventListener, myData.mStepCounter, SensorManager.SENSOR_DELAY_FASTEST);
 
-        TextView btnGame = (TextView) findViewById(R.id.textViewPointGames);
+        TextView btnGame = findViewById(R.id.textViewPointGames);
         btnGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -615,7 +627,7 @@ public class PointActivity extends WearableActivity {
     }
 
     public void calculateScore(boolean you_score) {
-        byte current_set = 0;
+        byte current_set;
         State new_state=null;
         //load top state first
         State current_state = stack.peek();
@@ -3233,7 +3245,7 @@ public class PointActivity extends WearableActivity {
 
     private static void chooseGameVoice(boolean down_serve, boolean is_tiebreak, byte gameUp,  byte gameDown) {
         Integer gameCall, gameCall2, gameCall3;
-        String fileName0, fileName1, fileName2, fileName3;
+        String fileName0, fileName1, fileName2;
         Log.d(TAG, "[chooseGameVoice start]");
         if (is_tiebreak) { //enter tiebreak
             Log.d(TAG, "in tiebreak");

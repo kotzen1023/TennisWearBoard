@@ -22,7 +22,6 @@ import com.seventhmoon.tenniswearboard.Data.InitData;
 
 import java.util.ArrayList;
 
-//import static com.seventhmoon.tenniswearboard.Data.InitData.mGoogleApiClient;
 
 public class SetsActivity extends WearableActivity {
     private static final String TAG = SetsActivity.class.getName();

@@ -2,19 +2,18 @@ package com.seventhmoon.tenniswearboard;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
-//import android.support.wearable.view.WearableRecyclerView;
+
 import android.support.wearable.view.BoxInsetLayout;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
+
 
 import com.aigestudio.wheelpicker.WheelPicker;
-//import com.seventhmoon.tenniswearboard.Data.SettingAdapter;
+
 
 import java.util.ArrayList;
 

@@ -20,7 +20,6 @@ import java.util.concurrent.TimeUnit;
 
 import static com.seventhmoon.tenniswearboard.SetsActivity.myData;
 
-//import static com.seventhmoon.tenniswearboard.Data.InitData.mGoogleApiClient;
 
 public class DataLayerListenerService extends WearableListenerService {
     private static final String TAG = DataLayerListenerService.class.getName();

@@ -8,8 +8,8 @@ android {
         //if want to release wear 2.0 for wear only, minSdkVersion and targetSdkVersion must be 25
         minSdkVersion 23
         targetSdkVersion 26
-        versionCode 19
-        versionName "1.18"
+        versionCode 20
+        versionName "1.19"
     }
     buildTypes {
         release {
