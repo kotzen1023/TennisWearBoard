@@ -1,10 +1,10 @@
 package com.seventhmoon.tenniswearboard;
 
-import android.app.AlertDialog;
+
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
+
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -18,11 +18,11 @@ import android.os.Handler;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
 
-import android.support.wearable.view.CircledImageView;
+
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
+
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -128,7 +128,7 @@ public class PointActivity extends WearableActivity {
     static SharedPreferences.Editor editor;
     private static final String FILE_NAME = "Preference";
 
-    private Dialog dialog;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -214,11 +214,13 @@ public class PointActivity extends WearableActivity {
                             }
                             @Override
                             public void onConnectionSuspended(int cause) {
+                                Log.e(TAG, "mGoogleApiClient ==> onConnectionSuspended reason = "+cause);
                             }
                         })
                         .addOnConnectionFailedListener(new GoogleApiClient.OnConnectionFailedListener() {
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
+                                Log.e(TAG, "mGoogleApiClient ==> onConnectionFailed");
                             }
                         })
                         .addApi(Wearable.API)

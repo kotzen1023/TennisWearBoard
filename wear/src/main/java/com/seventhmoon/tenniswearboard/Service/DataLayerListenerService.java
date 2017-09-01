@@ -47,7 +47,7 @@ public class DataLayerListenerService extends WearableListenerService {
 
                 DataMapItem dataMapItem = DataMapItem.fromDataItem(event.getDataItem());
                 Asset profileAsset = dataMapItem.getDataMap().getAsset("profileVoice");
-                InputStream inputStream = loadSouunFromAsset(profileAsset);
+                InputStream inputStream = loadSoundFromAsset(profileAsset);
                 String filename = dataMapItem.getDataMap().getString("filename");
                 Long size = dataMapItem.getDataMap().getLong("datasize");
                 Long count = dataMapItem.getDataMap().getLong("count");
@@ -65,7 +65,7 @@ public class DataLayerListenerService extends WearableListenerService {
         }
     }
 
-    public InputStream loadSouunFromAsset(Asset asset) {
+    public InputStream loadSoundFromAsset(Asset asset) {
 
 
         if (asset == null) {
