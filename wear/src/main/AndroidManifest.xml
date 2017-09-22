@@ -36,6 +36,8 @@
         <activity android:name=".PointActivity"/>
         <activity android:name=".VoiceSelectActivity"/>
         <activity android:name=".VoiceListenActivity"/>
+        <activity android:name=".GameActivity" />
+        <activity android:name=".DialogActivity"/>
 
         <service android:name=".Service.DataLayerListenerService">
             <intent-filter>
