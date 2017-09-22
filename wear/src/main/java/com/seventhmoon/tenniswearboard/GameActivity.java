@@ -1,5 +1,6 @@
 package com.seventhmoon.tenniswearboard;
 
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -21,11 +22,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+
 import static com.seventhmoon.tenniswearboard.PointActivity.set;
 import static com.seventhmoon.tenniswearboard.PointActivity.stack;
 import static com.seventhmoon.tenniswearboard.PointActivity.step_count_end;
 import static com.seventhmoon.tenniswearboard.PointActivity.step_count_start;
-
 
 public class GameActivity extends WearableActivity {
     private static final String TAG = GameActivity.class.getName();
@@ -249,7 +250,6 @@ public class GameActivity extends WearableActivity {
 
 
             layoutBtn.setVisibility(View.GONE);
-            layoutVoiceSupport.setVisibility(View.GONE);
             textViewTime.setVisibility(View.VISIBLE);
 
             textViewTime.setText(AMBIENT_DATE_FORMAT.format(new Date()));
@@ -281,7 +281,6 @@ public class GameActivity extends WearableActivity {
 
             textViewTime.setVisibility(View.GONE);
             layoutBtn.setVisibility(View.VISIBLE);
-            layoutVoiceSupport.setVisibility(View.VISIBLE);
 
             imgWinCheckUp.setImageResource(R.drawable.ic_done_black_48dp);
             imgWinCheckDown.setImageResource(R.drawable.ic_done_black_48dp);

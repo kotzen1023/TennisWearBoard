@@ -181,11 +181,14 @@ public class SetsActivity extends WearableActivity {
                 selected = i;
 
                 //showResetlog();
-                Intent intent = new Intent(SetsActivity.this, SetsConfirmActivity.class);
+                /*Intent intent = new Intent(SetsActivity.this, SetsConfirmActivity.class);
                 intent.putExtra("SETUP_SET", String.valueOf(selected));
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
+                startActivity(intent);*/
+                Intent newIntent = new Intent(SetsActivity.this, DialogActivity.class);
+                newIntent.putExtra("TITLE", myList_games_in_set.get(games_in_set_selected));
+                startActivityForResult(newIntent, REQUEST_CODE);
             }
         });
 
