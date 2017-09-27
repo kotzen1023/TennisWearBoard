@@ -58,4 +58,6 @@
     <string name="setup_a_set">一盤</string>
     <string name="setup_game">局</string>
     <string name="setup_point">分</string>
+    <string name="setup_super_tiebreak">S-Tiebreak</string>
+    <string name="dialog_super_tiebreak">Super Tibreak</string>
 </resources>
