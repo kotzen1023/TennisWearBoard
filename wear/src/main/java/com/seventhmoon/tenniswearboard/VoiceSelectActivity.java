@@ -426,7 +426,7 @@ public class VoiceSelectActivity extends WearableActivity implements IabBroadcas
                             imageBuyItems.get(1).setTitle(getResources().getString(R.string.voice_support_gbr_woman)+"\n" + inventory.getSkuDetails("sku_voice_support_gbr_woman").getPrice());
                         imageBuyItems.get(1).setPurchased(false);
                     } else {
-                        if (debug)
+                        if (debug) 
                             imageBuyItems.get(1).setTitle(getResources().getString(R.string.voice_support_gbr_woman));
                         else
                             imageBuyItems.get(1).setTitle(getResources().getString(R.string.voice_support_gbr_woman)+"\n" + "Purchased");
