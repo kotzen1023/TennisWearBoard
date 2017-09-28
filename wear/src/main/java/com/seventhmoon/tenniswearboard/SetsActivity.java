@@ -384,6 +384,10 @@ public class SetsActivity extends WearableActivity {
                     frameLayout.setVisibility(View.VISIBLE);
                 } else if (current_choose == 1) { //games in set select
 
+                    myList_tiebreak.clear();
+                    myList_tiebreak.add(getResources().getString(R.string.setup_tiebreak));
+                    myList_tiebreak.add(getResources().getString(R.string.setup_deciding_game));
+
                     if (selected > 0 && games_in_set_selected == 0) { //3,5 sets. 6 games
                         myList_tiebreak.add(getResources().getString(R.string.setup_super_tiebreak));
                         tieBreak_WheelPicker.setData(myList_tiebreak);

@@ -155,8 +155,8 @@ public class GameActivity extends WearableActivity {
         layoutVoiceSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(GameActivity.this, VoiceSelectActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(GameActivity.this, VoiceSelectActivity.class);
+                startActivity(intent);
             }
         });
     }
