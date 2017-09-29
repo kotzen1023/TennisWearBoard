@@ -6273,6 +6273,12 @@ public class PointActivity extends WearableActivity {
                             gameCall2 = R.raw.gbr_man_4;
                             voiceList.add(gameCall2);
                             break;
+                        case GBR_WOMAN:
+                            gameCall = R.raw.gbr_woman_start_6;
+                            voiceList.add(gameCall);
+                            gameCall2 = R.raw.gbr_woman_end_4;
+                            voiceList.add(gameCall2);
+                            break;
                         case USER_RECORD:
                             fileName0 = "user_6.m4a";
                             voiceUserList.add(fileName0);

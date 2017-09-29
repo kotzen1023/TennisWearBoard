@@ -390,8 +390,8 @@ public class SetsActivity extends WearableActivity {
 
                     if (selected > 0 && games_in_set_selected == 0) { //3,5 sets. 6 games
                         myList_tiebreak.add(getResources().getString(R.string.setup_super_tiebreak));
-                        tieBreak_WheelPicker.setData(myList_tiebreak);
                     }
+                    tieBreak_WheelPicker.setData(myList_tiebreak);
 
                     wheelPicker.setVisibility(View.GONE);
                     gameInSet_WheelPicker.setVisibility(View.GONE);
