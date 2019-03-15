@@ -573,25 +573,26 @@ public class VoiceSelectActivity extends WearableActivity implements IabBroadcas
         switch (position)
         {
             case 1: //gbr woman
-                if (mHelper != null)
-                    mHelper.launchPurchaseFlow(VoiceSelectActivity.this, "sku_voice_support_gbr_woman", 10001, mPurchaseFinishedListener, null);
-                //mHelper.consumeAsync(imageBuyItems.get(0).getPurchase(), mConsumeFinishedListener);
-                    /*if (purchase != null) {
-                        Log.d(TAG, "purchase != null");
-                    } else {
-                        Log.d(TAG, "purchase == null");
-                    }*/
+                if (mHelper != null) {
+                    try {
+                        mHelper.launchPurchaseFlow(VoiceSelectActivity.this, "sku_voice_support_gbr_woman", 10001, mPurchaseFinishedListener, null);
+                    } catch (IllegalStateException e) {
+                        e.printStackTrace();
+                    }
+
+                }
 
                 break;
             case 2: //user record
-                if (mHelper != null)
-                    mHelper.launchPurchaseFlow(VoiceSelectActivity.this, "sku_voice_support_user_record", 10001, mPurchaseFinishedListener, null);
-                //mHelper.consumeAsync(imageBuyItems.get(0).getPurchase(), mConsumeFinishedListener);
-                    /*if (purchase != null) {
-                        Log.d(TAG, "purchase != null");
-                    } else {
-                        Log.d(TAG, "purchase == null");
-                    }*/
+                if (mHelper != null) {
+                    try {
+                        mHelper.launchPurchaseFlow(VoiceSelectActivity.this, "sku_voice_support_user_record", 10001, mPurchaseFinishedListener, null);
+                    } catch (IllegalStateException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
 
                 break;
             default:
