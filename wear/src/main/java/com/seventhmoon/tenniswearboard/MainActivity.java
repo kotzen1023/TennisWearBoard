@@ -13,15 +13,19 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+
+//import android.support.v4.app.ActivityCompat
+import androidx.core.app.ActivityCompat;
+//import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat;
 import android.support.wearable.activity.WearableActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;

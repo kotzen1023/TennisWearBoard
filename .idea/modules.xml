@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Macauto_Android-TennisWearBoard.iml" filepath="$PROJECT_DIR$/Macauto_Android-TennisWearBoard.iml" group="TennisWearBoard" />
       <module fileurl="file://$PROJECT_DIR$/TennisWearBoard.iml" filepath="$PROJECT_DIR$/TennisWearBoard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WheelPicker-1.1.2/TennisWearBoard-WheelPicker-1.1.2.iml" filepath="$PROJECT_DIR$/WheelPicker-1.1.2/TennisWearBoard-WheelPicker-1.1.2.iml" group="TennisWearBoard/WheelPicker-1.1.2" />
+      <module fileurl="file://$PROJECT_DIR$/mobile/TennisWearBoard-mobile.iml" filepath="$PROJECT_DIR$/mobile/TennisWearBoard-mobile.iml" group="TennisWearBoard/mobile" />
+      <module fileurl="file://$PROJECT_DIR$/wear/TennisWearBoard-wear.iml" filepath="$PROJECT_DIR$/wear/TennisWearBoard-wear.iml" group="TennisWearBoard/wear" />
       <module fileurl="file://$PROJECT_DIR$/WheelPicker-1.1.2/WheelPicker-1.1.2.iml" filepath="$PROJECT_DIR$/WheelPicker-1.1.2/WheelPicker-1.1.2.iml" />
       <module fileurl="file://$PROJECT_DIR$/mobile/mobile.iml" filepath="$PROJECT_DIR$/mobile/mobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/wear/wear.iml" filepath="$PROJECT_DIR$/wear/wear.iml" />
